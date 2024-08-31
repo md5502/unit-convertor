@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Temperature Converter
+{% endblock title %}
+
+{% block content %}
+<h1>Temperature Converter</h1>
+    <!-- Temperature Converter -->
+    <div class="converter-section" id="temperature-converter">
+        <form action="{{url_for('convert_temperature')}}" method="post">
+            <h2>Temperature Converter</h2>
+            <div class="input-group">
+                <input required type="number" id="temperature-input" name="temperature-input" placeholder="Enter value">
+                <select required id="temperature-from" name="temperature-from">
+                    <option value="celsius">Celsius (°C)</option>
+                    <option value="fahrenheit">Fahrenheit (°F)</option>
+                    <option value="kelvin">Kelvin (K)</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <select required id="temperature-to" name="temperature-to">
+                    <option value="celsius">Celsius (°C)</option>
+                    <option value="fahrenheit">Fahrenheit (°F)</option>
+                    <option value="kelvin">Kelvin (K)</option>
+                </select>
+            </div>
+            <input class="convert-button" type="submit" value="Convert">
+            {% if result %}
+            <div class="result" id="weight-result">
+                {{result}}
+            </div>
+            {% endif %}
+        </form>
+    </div>
+{% endblock content %}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Weight Converter
+{% endblock title %}
+
+{% block content %}
+<h1>Weight Converter</h1>
+
+<!-- Weight Converter -->
+<div class="converter-section" id="weight-converter">
+    <form action="{{url_for('convert_weight')}}" method="post">
+        <h2>Weight Converter</h2>
+        <div class="input-group">
+            <input required type="number" id="weight-input" name="weight-input" placeholder="Enter value">
+            <select  required id="weight-from" name="weight-from">
+                <option value="milligram">Milligram (mg)</option>
+                <option value="gram">Gram (g)</option>
+                <option value="kilogram">Kilogram (kg)</option>
+                <option value="ounce">Ounce (oz)</option>
+                <option value="pound">Pound (lb)</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <select required id="weight-to" name="weight-to">
+                <option value="milligram">Milligram (mg)</option>
+                <option value="gram">Gram (g)</option>
+                <option value="kilogram">Kilogram (kg)</option>
+                <option value="ounce">Ounce (oz)</option>
+                <option value="pound">Pound (lb)</option>
+            </select>
+        </div>
+        <input class="convert-button" type="submit" value="Convert">
+        {% if result %}
+        <div class="result" id="weight-result">
+            {{result}}
+        </div>
+        {% endif %}
+    </form>
+    
+</div>
+
+{% endblock content %}

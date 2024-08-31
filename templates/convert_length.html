@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Length Converter
+{% endblock title %}
+
+{% block content %}
+    <h1>Length Converter</h1>
+
+    <!-- Length Converter -->
+    <div class="converter-section" id="length-converter">
+        <form action="{{url_for('convert_length')}}" method="post">
+            <h2>Length Converter</h2>
+            <div class="input-group">
+                <input required name="length-input" type="number" id="length-input" placeholder="Enter value">
+                <select required name="length-from" id="length-from">
+                    <option value="millimeter">Millimeter (mm)</option>
+                    <option value="centimeter">Centimeter (cm)</option>
+                    <option value="meter">Meter (m)</option>
+                    <option value="kilometer">Kilometer (km)</option>
+                    <option value="inch">Inch (in)</option>
+                    <option value="foot">Foot (ft)</option>
+                    <option value="yard">Yard (yd)</option>
+                    <option value="mile">Mile (mi)</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <select required name="length-to" id="length-to">
+                    <option value="millimeter">Millimeter (mm)</option>
+                    <option value="centimeter">Centimeter (cm)</option>
+                    <option value="meter">Meter (m)</option>
+                    <option value="kilometer">Kilometer (km)</option>
+                    <option value="inch">Inch (in)</option>
+                    <option value="foot">Foot (ft)</option>
+                    <option value="yard">Yard (yd)</option>
+                    <option value="mile">Mile (mi)</option>
+                </select>
+            </div>
+            <input class="convert-button" type="submit" value="Convert">
+            {% if result %}
+            <div class="result" id="weight-result">
+                {{result}}
+            </div>
+            {% endif %}
+        </form>
+    </div>
+{% endblock content %}
